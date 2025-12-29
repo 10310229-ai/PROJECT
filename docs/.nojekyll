@@ -1,0 +1,9 @@
+# GitHub Pages Static Site
+
+This directory contains the static HTML version of the Okere District Assembly website.
+
+## Deployment
+
+This site is automatically deployed to GitHub Pages from the `/docs` folder.
+
+Visit: https://10310229-ai.github.io/PROJECT/

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Okere District Assembly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav {
+            background: #333;
+            padding: 15px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+        
+        nav ul li a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            font-size: 2.5em;
+            color: #1e3c72;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-content h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        .news-content .date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .news-content p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>OKERE DISTRICT ASSEMBLY</h1>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="documents.html">FILES</a></li>
+            <li><a href="tourism.html">TOURISM</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <h1 class="page-title">Latest News & Updates</h1>
+        
+        <div class="news-grid">
+            <div class="news-item">
+                <div class="news-image">📰</div>
+                <div class="news-content">
+                    <h3>Infrastructure Development Project Launched</h3>
+                    <p class="date">December 28, 2025</p>
+                    <p>
+                        The Okere District Assembly has launched a major infrastructure development project 
+                        aimed at improving road networks and public facilities across the district.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-image">🏫</div>
+                <div class="news-content">
+                    <h3>New Educational Programs Announced</h3>
+                    <p class="date">December 25, 2025</p>
+                    <p>
+                        Exciting new educational initiatives have been announced to support youth development 
+                        and improve learning outcomes in district schools.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-image">🌳</div>
+                <div class="news-content">
+                    <h3>Environmental Conservation Initiative</h3>
+                    <p class="date">December 22, 2025</p>
+                    <p>
+                        A new tree planting campaign has been launched to promote environmental sustainability 
+                        and combat climate change in our communities.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-image">💼</div>
+                <div class="news-content">
+                    <h3>Job Creation Program Starts</h3>
+                    <p class="date">December 20, 2025</p>
+                    <p>
+                        The district has partnered with local businesses to create employment opportunities 
+                        for young people and boost the local economy.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-image">🏥</div>
+                <div class="news-content">
+                    <h3>Healthcare Services Expansion</h3>
+                    <p class="date">December 18, 2025</p>
+                    <p>
+                        New healthcare facilities and services are being introduced to ensure better 
+                        access to quality medical care for all residents.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-image">🎉</div>
+                <div class="news-content">
+                    <h3>Community Festival Coming Soon</h3>
+                    <p class="date">December 15, 2025</p>
+                    <p>
+                        The annual Okere District Festival will celebrate our rich cultural heritage 
+                        with music, dance, and traditional ceremonies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 Okere District Assembly. All rights reserved.</p>
+        <p>Contact: info@okeredistrict.gov.gh</p>
+    </div>
+</body>
+</html>
