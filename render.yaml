@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: okere-django-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "cd PROJECT/account && gunicorn account.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: ALLOWED_HOSTS
+        sync: false
+    autoDeploy: true
