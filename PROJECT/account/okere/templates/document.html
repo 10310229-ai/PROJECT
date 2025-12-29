@@ -1,0 +1,175 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>file1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+  <link rel="stylesheet" href="{% static 'css/document.css' %}">
+</head>
+
+<body id="isk2uo-2-2">
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="imaewpy">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="ixgjubj">
+      <div id="i9ogl5f">
+        <div id="ijlnhun">OKERE DISTRICT ASSEMBLY</div>
+      </div>
+    </div>
+  </div>
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="i4njf2u">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="ijjk4t9"><a class="gjs-t-link"
+        id="ishl34u" href="{% url 'slide' %}">HOME</a>
+      <a class="gjs-t-link" id="ihs33pk" href="{% url 'news_list' %}">NEWS</a>
+      <a class="gjs-t-link" id="igej6o7" href="{% url 'about_list' %}">ABOUT</a><a
+        class="gjs-t-link" id="i9fgnjg" href="{% url 'service_list' %}">SERVICES</a>
+      <a class="gjs-t-link" id="ivhro9w" href="{% url 'tourist_list' %}">TOURISM</a>
+      <a class="gjs-t-link"
+        id="icocsik" href="{% url 'file_list' %}">FILES</a></div>
+  </div>
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="iljkxvp">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="isogfoc">
+      <div id="itrnwh7">FILES</div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+
+
+<style>
+/* ✅ SCOPED STYLES — WILL NOT TOUCH HEADER */
+
+.file-section {
+  padding: 20px;
+}
+
+.file-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.file-section thead {
+  background: #f5f5f5;
+}
+
+.file-section th,
+.file-section td {
+  padding: 14px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.file-section th {
+  font-weight: 700;
+  color: #333;
+}
+
+/* File icon */
+.file-section .file-icon {
+  width: 50px;
+  height: 50px;
+  border: 1.5px solid #bbb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  background: #fff;
+  text-transform: uppercase;
+}
+
+/* File title */
+.file-section .file-title {
+  font-size: 16px;
+  color: #222;
+}
+
+/* Open button */
+.file-section .open-btn a {
+  padding: 8px 14px;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+.file-section .open-btn a:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+</style>
+
+<div class="file-section">
+
+  <table>
+    <thead>
+      <tr>
+        <th>File</th>
+        <th>Title</th>
+        <th>Open</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for f in file %}
+      <tr>
+
+        <!-- File Icon -->
+        <td>
+          <div class="file-icon">
+            {% with name=f.file.name|lower %}
+                {% if ".pdf" in name %}
+                    PDF
+                {% elif ".doc" in name %}
+                    WORD
+                {% elif ".ppt" in name %}
+                    PPTX
+                {% endif %}
+                FILE
+
+            {% endwith %}
+          </div>
+        </td>
+
+        <!-- Title -->
+        <td class="file-title">
+          {{ f.title }}
+        </td>
+
+        <!-- Open -->
+        <td class="open-btn">
+          <a href="{% url 'open' f.pk %}" target="_blank" rel="noopener">
+            Open
+          </a>
+        </td>
+
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="3">No files available.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+</html>

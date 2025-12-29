@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Text App{% endblock %}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body{font-family:Segoe UI,Arial,Helvetica,sans-serif;margin:28px}
+    .container{max-width:800px;margin:0 auto}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .card{border:1px solid #ddd;padding:12px;border-radius:6px;margin-bottom:12px}
+    form input, form textarea {width:100%;padding:8px;margin:6px 0;border:1px solid #ccc;border-radius:4px}
+    button{padding:8px 14px;border:none;background:#2b7cff;color:white;border-radius:5px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="{% url 'notes:list_texts' %}">Text App</a></h1>
+      <nav><a href="{% url 'notes:upload_text' %}">Upload text</a></nav>
+    </header>
+
+    {% if messages %}
+      <ul>
+      {% for m in messages %}
+        <li>{{ m }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

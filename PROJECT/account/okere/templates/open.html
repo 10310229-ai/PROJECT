@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #121212; color: #f1f1f1; font-family: "Poppins", sans-serif; }
+        .container { margin-top: 40px; }
+        h2 { color: #00bcd4; border-bottom: 1px solid #00bcd4; padding-bottom: 5px; margin-bottom: 20px; }
+        .table td, .table th { color: #f1f1f1; border-color: #555; }
+        img { max-width: 100%; margin: 10px 0; border-radius: 8px; }
+        .slide { border: 1px solid #444; padding: 15px; margin-bottom: 20px; border-radius: 8px; background-color: #1e1e1e; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>📄 Document Viewer</h2>
+
+    {% if content.error %}
+        <div class="alert alert-danger">{{ content.error }}</div>
+    {% endif %}
+
+    {# ==== DOCX CONTENT ==== #}
+    {% if content.content %}
+        <h4>Paragraphs:</h4>
+        <div>
+            {% for para in content.content %}
+                <p>{{ para.text }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if content.tables %}
+        <h4>Tables:</h4>
+        {% for table in content.tables %}
+            <table class="table table-bordered table-dark mt-3">
+                {% for row in table %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% endif %}
+
+    {% if content.images %}
+        <h4>Images:</h4>
+        {% for img in content.images %}
+            <img src="{{ img }}" alt="Embedded Image">
+        {% endfor %}
+    {% endif %}
+
+    {# ==== PPTX CONTENT ==== #}
+    {% if content.slides %}
+        <h4>Slides:</h4>
+        {% for slide in content.slides %}
+            <div class="slide">
+                <h5>Slide {{ slide.number }}</h5>
+                {% for shape in slide.shapes %}
+                    {% if shape.text %}
+                        <p>{{ shape.text }}</p>
+                    {% endif %}
+                    {% if shape.image %}
+                        <img src="{{ shape.image }}" alt="Slide Image">
+                    {% endif %}
+                    {% if shape.table %}
+                        <table class="table table-bordered table-dark mt-2">
+                            {% for row in shape.table %}
+                                <tr>
+                                    {% for cell in row %}
+                                        <td>{{ cell }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {# ==== PDF CONTENT ==== #}
+    {% if content.pages %}
+        <h4>PDF Pages:</h4>
+        {% for page in content.pages %}
+            <div class="mb-4">
+                <p>{{ page }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>

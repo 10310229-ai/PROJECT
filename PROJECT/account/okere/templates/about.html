@@ -1,0 +1,175 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>about1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+    <link rel="stylesheet" href="{% static 'css/about4.css' %}">
+</head>
+
+<body id="isk2uo-2-2-2">
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="ixcrz7o">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="irrztkh">
+      <div id="imb1u51">
+        <div id="izojzxj">OKERE DISTRICT ASSEMBLY</div>
+      </div>
+    </div>
+  </div>
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="i2clzr4">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="ibx2mog"><a class="gjs-t-link"
+        id="ielze0l" href="{% url 'slide' %}">HOME</a>
+        <a class="gjs-t-link" id="iu9byrf" href="{% url 'news_list' %}">NEWS</a>
+        <a class="gjs-t-link" id="iywzn2l" href="{% url 'about_list' %}">ABOUT</a><a
+        class="gjs-t-link" id="i3hozaz" href="{% url 'service_list' %}">SERVICES</a>
+        <a class="gjs-t-link" id="ihyo5li" href="{% url 'tourist_list' %}">TOURISM</a><a class="gjs-t-link"
+        id="itf0oma" href="{% url 'file_list' %}">FILES</a></div>
+  </div>
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="ipx3es5">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="ii58dih">
+      <div id="iu872hd">ABOUT</div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Media</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Image Zoom Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.css">
+
+    <style>
+        .post-card {
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .post-header {
+            padding: 15px 20px;
+            background: #f8f9fa;
+        }
+
+        .post-title {
+            font-size: 18px;
+            font-weight: bold;
+            word-wrap: break-word;
+        }
+
+        .post-date {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .post-media img,
+        .post-media video {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .post-media {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+
+    <h2 class="text-center mb-4">ABOUT THE DISTRICT</h2>
+
+    <!-- GRID CONTAINER -->
+    <div class="row">
+
+        <!-- Images -->
+        {% for img in context.about_image %}
+        <div class="col-md-6 col-lg-6">  <!-- 2 GRID ITEMS PER ROW -->
+            <div class="post-card">
+
+                <div class="post-header">
+                    <div class="post-title">{{ img.title }}</div>
+                    <div class="post-date">
+                        {{ img.upload_at|date:"M d, Y" }} at {{ img.upload_at|time:"H:i" }}
+                    </div>
+                </div>
+
+                <div class="post-media">
+                    <img class="zoomable" src="{{ img.about_image.url }}" alt="{{ img.title }}">
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Videos -->
+        {% for vid in context.about_video %}
+        <div class="col-md-6 col-lg-6">  <!-- 2 GRID ITEMS PER ROW -->
+            <div class="post-card">
+
+                <div class="post-header">
+                    <div class="post-title">{{ vid.title }}</div>
+                    <div class="post-date">
+                        {{ vid.upload_at|date:"M d, Y" }} at {{ vid.upload_at|time:"H:i" }}
+                    </div>
+                </div>
+
+                <div class="post-media">
+                    <video controls>
+                        <source src="{{ vid.about_video.url }}" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<!-- ViewerJS (Zoom Support) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".zoomable").forEach(img => {
+            new Viewer(img, {
+                navbar: false,
+                toolbar: true,
+                movable: true,
+                zoomable: true,
+                scalable: true,
+                fullscreen: true,
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+
+</body>
+
+
+</html>

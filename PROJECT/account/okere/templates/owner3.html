@@ -1,0 +1,42 @@
+<table border="1" cellpadding="10" cellspacing="0" style="width:100%;">
+    <tr>
+        <th>Rename</th>
+        <th>Type</th>
+        <th>Title</th>
+        <th>Delete</th>
+    </tr>
+
+    <!-- IMAGE ROWS -->
+    {% for img in news_image %}
+    <tr>
+        <td>
+            <a href="{% url 'rename_image' img.id %}">rename</a>
+        </td>
+
+        <td><b>Image</b></td>
+
+        <td>{{ img.title }}</td>
+
+        <td>
+            <a href="{% url 'delete_image' img.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    <!-- VIDEO ROWS -->
+    {% for vid in news_video %}
+    <tr>
+        <td>
+            <a href="{% url 'rename_video' vid.id %}">rename</a>
+        </td>
+
+        <td><b>Video</b></td>
+
+        <td>{{ vid.title }}</td>
+
+        <td>
+            <a href="{% url 'delete_video' vid.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

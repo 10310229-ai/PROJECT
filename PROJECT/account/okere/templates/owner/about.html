@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ABOUT LIST</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+      <link rel="stylesheet" href="{% static 'css/d_about.css' %}">
+</head>
+
+<body id="ieml3n-2-2-2-2-2">
+  <div data-type-role="flex-row" id="iw8cyl-2-2-2-2-2" class="gjs-plg-flex-row">
+    <div data-type-role="flex-column" id="ioegnc-2-2-2-2-2" class="gjs-plg-flex-column">
+      <div id="iyat3v-2-2-2-2-2">
+        <div id="ixza9k-2-2-2-2-2">ABOUT LIST PAGE                                                          </div>
+      </div>
+    </div>
+  </div>
+  <div id="isurlf-2-2-2-2-2">HOME</div><a id="ihibe6-2-2" class="gjs-t-link">Link</a>
+  <div data-type-role="flex-row" id="iftqjy-2-2-2-2-2" class="gjs-plg-flex-row">
+    <div data-type-role="flex-column" id="ixd2rh-2-2-2-2-2" class="gjs-plg-flex-column">
+      <div id="i87861-2-2-2-2-2">ABOUT</div>
+    </div>
+  </div>
+  <div data-type-role="flex-row" id="iapitp-2-2" class="gjs-plg-flex-row">
+    <div data-type-role="flex-column" id="i043lb-2-2" class="gjs-plg-flex-column"><a id="ina3we-2-2"
+        class="gjs-t-link" href="{% url 'slide_owner' %}">HOME</a>
+        <a id="i6b43w-2-2" class="gjs-t-link" href="{% url 'about_owner' %}">ABOUT</a>
+        <a id="ig9q1z-2-2"
+        class="gjs-t-link" href="{% url 'news_owner' %}">NEWS</a>
+        <a id="ixmuc8-2-2" class="gjs-t-link" href="{% url 'service_owner' %}">SERVICES</a>
+        <a id="ilpdza"
+        class="gjs-t-link" href="{% url 'mis' %}">ADMIN</a>
+        <a class="gjs-t-link" id="i3zvj9" href="{% url 'tourist_owner' %}">TOURISM</a>
+        <a class="gjs-t-link"
+        id="id1n26" href="{% url 'file_owner' %}">FILES</a></div>
+  </div>
+</body>
+
+</html>
+<table border="1" cellpadding="10" cellspacing="0" style="width:100%;">
+    <tr>
+        <th>Rename</th>
+        <th>Type</th>
+        <th>Title</th>
+        <th>Delete</th>
+    </tr>
+
+    <!-- IMAGE ROWS -->
+    {% for img in context.about_image %}
+    <tr>
+        <td>
+            <a href="{% url 'about_image_rename' img.pk %}">RENAME</a>
+
+
+        </td>
+
+        <td><b>Image</b></td>
+
+        <td>{{ img.title }}</td>
+
+        <td>
+            <a href="{% url 'about_image_delete' img.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    <!-- VIDEO ROWS -->
+    {% for vid in context.about_video %}
+    <tr>
+        <td>
+             <a href="{% url 'about_video_rename' vid.pk %}">RENAME</a>
+
+        </td>
+
+        <td><b>Video</b></td>
+
+        <td>{{ vid.title }}</td>
+
+        <td>
+            <a href="{% url 'about_video_delete' vid.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+
+
+</html>

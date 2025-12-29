@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>file upload</head>
+<body>
+   <nav>
+     {% if user.is_authenticated %}
+       hello {{ user.username }} |
+       <a href="{% url 'about_image' %}">ABOUT IMAGE</a> |
+       <a href="{% url 'about_video' %}">ABOUT VIDEO</a> |
+       <a href="{% url 'owner' %}">OWNER</a> |
+
+       <a href="{% url 'service_page' %}">SERVICE</a> |
+       <a href="{% url 'news_image' %}">NEWS IMAGE</a> |
+       <a href="{% url 'news_video' %}">NEWS VIDEO</a> |
+       <a href="{% url 'service_page' %}">text</a> |
+     <a href="{% url 'slide_upload' %}">SLIDE SHOW</a> |
+     {% endif %}
+
+   </nav>
+</body>
+</html>

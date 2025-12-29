@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>service</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+    <link rel="stylesheet" href="{% static 'css/service1.css' %}">
+</head>
+
+<body id="isk2uo-2-2-2-2">
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="iiazndu">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="i855wgc">
+      <div id="i2eadtv">
+        <div id="iq1woep">OKERE DISTRICT ASSEMBLY</div>
+      </div>
+    </div>
+  </div>
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="iiztovk">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="itgt1kv"><a class="gjs-t-link"
+        id="igbet1w" href="{% url 'slide' %}">HOME</a>
+      <a class="gjs-t-link" id="iw54otg" href="{% url 'news_list' %}">NEWS</a>
+      <a class="gjs-t-link" id="i9nrpvi" href="{% url 'about_list' %}">ABOUT</a><a
+        class="gjs-t-link" id="ixk4kwy" href="{% url 'service_list' %}">SERVICES</a>
+      <a class="gjs-t-link" id="i41u213" href="{% url 'tourist_list' %}">TOURISM</a><a class="gjs-t-link"
+        id="ihkustl" href="{% url 'file_list'%} " >FILES</a></div>
+  </div>
+  <div data-type-role="flex-row" class="gjs-plg-flex-row" id="inst69f">
+    <div data-type-role="flex-column" class="gjs-plg-flex-column" id="itgzbtx">
+      <div id="ijxnuas">services</div>
+    </div>
+  </div>
+
+
+<style>
+    /* ===== TEXT CARD LAYOUT ===== */
+    .item {
+        margin-bottom: 14px;
+        padding: 14px;
+        border-radius: 10px;
+        background: #e9f5ea;              /* light green */
+        border: 1px solid #cfe3d2;
+    }
+
+    /* ===== EMBOSS EFFECT ===== */
+    .emboss {
+        box-shadow:
+            inset 1px 1px 3px rgba(255, 255, 255, 0.9),
+            inset -2px -2px 4px rgba(50, 120, 80, 0.25),
+            3px 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ===== TEXT STYLING ===== */
+    .username {
+        font-weight: bold;
+        color: #2f6b3f;
+        margin-bottom: 4px;
+    }
+
+    .date {
+        font-size: 13px;
+        color: #5f7f6a;
+        margin-top: 6px;
+    }
+
+    /* ===== RESPONSIVE SAFETY ===== */
+    @media (max-width: 600px) {
+        .item {
+            padding: 12px;
+            font-size: 15px;
+        }
+    }
+</style>
+
+<!-- ===== EMBOSSED TEXT DISPLAY ===== -->
+{% for f in file %}
+  <div class="item emboss">
+      <p class="username">{{ f.user.username }}</p>
+      <p>{{ f.text }}</p>
+      <p class="date">{{ f.upload_at }}</p>
+  </div>
+{% empty %}
+  <p>No text uploaded yet.</p>
+{% endfor %}
+
+</body>
+</html>
+
+

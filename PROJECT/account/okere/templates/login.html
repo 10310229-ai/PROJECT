@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+      <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body id="i8ni0s">
+  <div data-type-role="flex-row" id="idz47r" class="gjs-plg-flex-row">
+    <div data-type-role="flex-column" id="ismyej" class="gjs-plg-flex-column">
+      <div data-type-role="flex-row" id="iit1gl" class="gjs-plg-flex-row">
+        <div data-type-role="flex-column" id="iezsni" class="gjs-plg-flex-column">
+          <div id="ii452n">
+            <div id="iw4dk5">LOGIN PAGE</div>
+          </div>
+        </div>
+      </div>
+      <div data-type-role="flex-row" id="izdait" class="gjs-plg-flex-row">
+        <div data-type-role="flex-column" id="i0bqmi" class="gjs-plg-flex-column">
+          <button type="button" id="ieat6i"
+                  class="btn btn-success"
+            onclick="window.location.href='{% url 'signup'%}' ">
+          >Button</button><label id="iwhkpi">DO NOT HAVE AN ACCOUNT</label></div>
+      </div>
+    </div>
+    <div data-type-role="flex-column" id="il7kor" class="gjs-plg-flex-column">
+      <div data-type-role="flex-row" id="ijxoal" class="gjs-plg-flex-row">
+        <div data-type-role="flex-column" id="i6zjoj" class="gjs-plg-flex-column"></div>
+      </div>
+
+      <form method="post" id="igsups" action="{% url 'MIS-login' %}">
+            {% csrf_token %}
+        <div id="iuf622"><label id="imjkiv">USERNAME</label><input type="text" name="username" id="i3oddm"/></div>
+        <div id="i3ibhx"><label id="ixex42">PASSWORD</label><input type="password" name="password" id="i8nu96"/></div>
+        <div id="iilt6j"><button type="submit" id="ibefqg">LOGIN</button></div>
+      </form>
+      <div data-type-role="flex-row" id="i0qt9k" class="gjs-plg-flex-row">
+        <div data-type-role="flex-column" id="iz8r7h" class="gjs-plg-flex-column"><a id="i5u4gw"
+            class="gjs-t-link" href="{% url 'change_password' %}">RESET PASSWORD</a></div>
+        <div data-type-role="flex-column" id="iwljd1" class="gjs-plg-flex-column"><a id="i901zb"
+            class="gjs-t-link">FORGET PASSWORD</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
